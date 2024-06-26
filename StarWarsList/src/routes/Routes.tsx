@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 export type RouteStackParamList = {
   HomeScreen: undefined;
   DetailsScreen: {
-    peopleId: string;
+    peopleId: number;
   };
 };
 
