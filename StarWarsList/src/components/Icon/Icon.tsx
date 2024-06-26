@@ -2,6 +2,7 @@ import React from "react";
 import { Pressable } from "react-native";
 
 import { ArrowDown } from "src/assets/icons/ArrowDown";
+import { ArrowLeft } from "src/assets/icons/ArrowLeft";
 import { Close } from "src/assets/icons/Close";
 import { Search } from "src/assets/icons/Search";
 import { StarLine } from "src/assets/icons/StarLine";
@@ -42,6 +43,7 @@ const iconRegistry = {
   search: Search,
   starLine: StarLine,
   startOutline: StartOutline,
+  arrowLeft: ArrowLeft,
 };
 
 type IconType = typeof iconRegistry;
