@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { ActivityIndicator, SafeAreaView, View } from "react-native";
+import React, { useEffect } from "react";
+import {
+  ActivityIndicator,
+  SafeAreaView,
+  View,
+  ScrollView,
+} from "react-native";
 import { Text } from "../../components/Text/Text";
 import { styles } from "./styles";
 import { RouteStackParamList } from "src/routes/Routes";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { TopBar } from "src/components/TopBar/TopBar";
-import { useCharacterDetailViewModel } from "src/viewmodels/CharacterFilmsViewModel";
+import { useCharacterDetailViewModel } from "src/viewmodels/CharacterDetails";
 import { MovieCard } from "src/components/MovieCard/MovieCard";
-import { fetchFilmTitle } from "src/api/services/filmService";
+import { CardItem } from "src/components/CardItem/CardItem";
+import { useFilmViewModel } from "src/viewmodels/FilmViewModel";
+import { useFavoritesStore } from "src/store/favoriteStore";
 
 type ScreenProps = NativeStackScreenProps<RouteStackParamList, "DetailsScreen">;
 
@@ -20,7 +27,8 @@ export const DetailScreen = ({ route, navigation }: ScreenProps) => {
 
   const { isLoading, character, error, loadCharacterDetails } =
     useCharacterDetailViewModel();
-  const [filmTitles, setFilmTitles] = useState<string[]>([]);
+  const { filmTitles, error: filmError, loadFilmTitle } = useFilmViewModel();
+  const { isFavorite, toggleFavorite } = useFavoritesStore();
 
   useEffect(() => {
     loadCharacterDetails(peopleId);
@@ -28,31 +36,30 @@ export const DetailScreen = ({ route, navigation }: ScreenProps) => {
 
   useEffect(() => {
     if (character) {
-      const fetchFilmTitles = async () => {
-        try {
-          const promises = character.films.map((filmUrl) =>
-            fetchFilmTitle(filmUrl)
-          );
-          const titles = await Promise.all(promises);
-          setFilmTitles(titles);
-        } catch (error) {
-          console.error("Erro ao obter títulos dos filmes:", error);
+      character.films.forEach((filmUrl) => {
+        if (!filmTitles[filmUrl]) {
+          loadFilmTitle(filmUrl);
         }
-      };
-
-      fetchFilmTitles();
+      });
     }
   }, [character]);
 
   if (isLoading || !character) {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <ActivityIndicator size='large' color='#0000ff' />
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#1B1B1B",
+        }}
+      >
+        <ActivityIndicator size='large' color='#007AFF' />
       </View>
     );
   }
 
-  if (error) {
+  if (error || filmError) {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <Text>{error}</Text>
@@ -63,15 +70,34 @@ export const DetailScreen = ({ route, navigation }: ScreenProps) => {
   return (
     <SafeAreaView style={styles.wrapper}>
       <TopBar onPressLeftButton={handlePressGoBack} iconRight />
-      <View style={styles.container}>
-        <Text>Detail Screen</Text>
-        <Text>{route.params.peopleId}</Text>
-      </View>
-      <View>
-        {filmTitles.map((title, index) => (
-          <MovieCard key={index} movieTitle={title} />
-        ))}
-      </View>
+
+      <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+        <View style={styles.containerTitle}>
+          <Text variant='headingLargeBold'>Detail Screen</Text>
+        </View>
+
+        <View>
+          <CardItem
+            name={character.name}
+            character={character}
+            characterId={character.id}
+            handleFavorite={toggleFavorite}
+            isFavorite={isFavorite(character.id)}
+          />
+        </View>
+
+        <View style={styles.containerFilms}>
+          <Text variant='headingLargeBold' style={styles.FilmTitle}>
+            Films
+          </Text>
+          {character.films.map((filmUrl) => (
+            <MovieCard
+              key={filmUrl}
+              movieTitle={filmTitles[filmUrl] || "Loading..."}
+            />
+          ))}
+        </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

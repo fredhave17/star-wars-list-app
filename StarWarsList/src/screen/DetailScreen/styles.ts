@@ -5,8 +5,21 @@ export const styles = StyleSheet.create({
     backgroundColor: "#1B1B1B",
     flex: 1,
   },
+  containerTitle: {
+    margin: 24,
+  },
   container: {
     backgroundColor: "#1B1B1B",
-    padding: 24,
+    paddingHorizontal: 24,
+  },
+  containerFilms: {
+    paddingHorizontal: 24,
+  },
+  scrollViewContainer: {
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+  },
+  FilmTitle: {
+    marginBottom: 12,
   },
 });

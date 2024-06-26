@@ -5,6 +5,6 @@ export const cardStyle = StyleSheet.create({
     backgroundColor: "#333333",
     marginBottom: 10,
     borderRadius: 8,
-    padding: 10,
+    padding: 20,
   },
 });
