@@ -2,20 +2,10 @@ import { StyleSheet } from "react-native";
 import { $COLORS } from "src/theme/colors";
 
 export const styles = StyleSheet.create({
-  containerExpanded: {
-    backgroundColor: "#2D2D2D",
-    padding: 12,
-    borderRadius: 24,
-    marginHorizontal: 30,
-    marginBottom: 20,
-  },
-  containerNormal: {
-    backgroundColor: "#2D2D2D",
+  container: {
     padding: 16,
     borderRadius: 24,
-
-    elevation: 5,
-    marginBottom: 20,
+    marginTop: 20,
   },
   imageContainer: {
     width: 48,
@@ -23,13 +13,6 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     overflow: "hidden",
     marginBottom: 20,
-  },
-  containerActions: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  iconButton: {
-    marginHorizontal: 5,
   },
   image: {
     width: "100%",
@@ -39,7 +22,7 @@ export const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: 16,
+    marginBottom: 20,
   },
   itemContainer: {
     flexDirection: "row",

@@ -10,7 +10,7 @@ export interface MovieCardProps {
 export const MovieCard = ({ movieTitle }: MovieCardProps) => {
   return (
     <View style={cardStyle.wrapper}>
-      <Text>{movieTitle}</Text>
+      <Text variant='headingMediumBold'>{movieTitle}</Text>
     </View>
   );
 };

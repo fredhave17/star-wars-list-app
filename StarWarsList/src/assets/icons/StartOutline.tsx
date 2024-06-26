@@ -4,11 +4,26 @@ import { IconBase } from "src/components/Icon/Icon";
 
 export const StartOutline = ({ size = 20, color = "black" }: IconBase) => {
   return (
-    <Svg width={size} height={size} viewBox='0 0 18 17' fill='none'>
-      <Path
-        d='M5.85 13.825L9 11.925L12.15 13.85L11.325 10.25L14.1 7.84999L10.45 7.52499L9 4.12499L7.55 7.49999L3.9 7.82499L6.675 10.25L5.85 13.825ZM3.575 16.9615L5.00775 10.7922L0.221252 6.64424L6.5365 6.09624L9 0.278992L11.4635 6.09624L17.7788 6.64424L12.9923 10.7922L14.425 16.9615L9 13.6885L3.575 16.9615Z'
-        fill='white'
-      />
+    <Svg width={size} height={size} viewBox='0 0 24 24' fill='none'>
+      <G id='grade'>
+        <Mask
+          id='mask0_252_5'
+          maskUnits='userSpaceOnUse'
+          x='0'
+          y='0'
+          width='24'
+          height='24'
+        >
+          <Rect id='Bounding box' width='24' height='24' fill='#D9D9D9' />
+        </Mask>
+        <G mask='url(#mask0_252_5)'>
+          <Path
+            id='grade_2'
+            d='M8.85 16.8251L12 14.9251L15.15 16.8501L14.325 13.2501L17.1 10.8501L13.45 10.5251L12 7.12505L10.55 10.5001L6.9 10.8251L9.675 13.2501L8.85 16.8251ZM6.575 19.9616L8.00775 13.7923L3.22125 9.6443L9.5365 9.0963L12 3.27905L14.4635 9.0963L20.7788 9.6443L15.9923 13.7923L17.425 19.9616L12 16.6886L6.575 19.9616Z'
+            fill='white'
+          />
+        </G>
+      </G>
     </Svg>
   );
 };

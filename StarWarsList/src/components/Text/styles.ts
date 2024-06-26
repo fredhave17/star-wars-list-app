@@ -55,12 +55,10 @@ export const styles = {
   headingLarge: {
     ...$fontSizes.headingLarge,
     color: "#333",
-    // Outros estilos específicos para headingLarge
   } as TextStyle,
 
   paragraph: {
     ...$fontSizes.paragraphMedium,
     color: "#666",
-    // Outros estilos específicos para paragraphMedium
   } as TextStyle,
 };
