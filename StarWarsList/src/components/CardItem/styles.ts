@@ -3,10 +3,9 @@ import { $COLORS } from "src/theme/colors";
 
 export const styles = StyleSheet.create({
   container: {
-    width: "100%",
     backgroundColor: "#2D2D2D",
     padding: 16,
-    height: 210,
+    height: 220,
     borderRadius: 24,
     margin: 10,
     shadowColor: "#000",

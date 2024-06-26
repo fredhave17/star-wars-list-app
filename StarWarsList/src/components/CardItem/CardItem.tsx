@@ -16,7 +16,7 @@ interface CardItemProps {
   gender: string;
   birthDate: string;
 
-  onPress: (event: GestureResponderEvent) => void;
+  onPress: () => void;
 }
 
 export const CardItem = ({
@@ -52,7 +52,7 @@ export const CardItem = ({
           </Text>
         </View>
       </View>
-      <Button text={"Films"} style={styles.button} />
+      <Button text={"Films"} style={styles.button} onPress={onPress} />
     </View>
   );
 };
