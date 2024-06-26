@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import { fetchCharacters, Character } from "../api/services/characterService";
+import {
+  fetchCharactersName,
+  Character,
+} from "../api/services/characterNameService";
 
 interface CharacterListViewModel {
   isLoading: boolean;
@@ -11,7 +14,7 @@ interface CharacterListViewModel {
 
 const PAGE_SIZE = 10;
 
-export function useCharacterListViewModel(): CharacterListViewModel {
+export function useCharacterNameListViewModel(): CharacterListViewModel {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [hasError, setHasError] = useState<boolean>(false);
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -24,7 +27,7 @@ export function useCharacterListViewModel(): CharacterListViewModel {
   const loadCharacters = async () => {
     setIsLoading(true);
     try {
-      const loadedCharacters = await fetchCharacters(page);
+      const loadedCharacters = await fetchCharactersName(page);
       setCharacters(loadedCharacters);
       setHasError(false);
     } catch (error) {
@@ -40,7 +43,7 @@ export function useCharacterListViewModel(): CharacterListViewModel {
     setIsLoading(true);
     try {
       const nextPage = page + 1;
-      const loadedCharacters = await fetchCharacters(nextPage);
+      const loadedCharacters = await fetchCharactersName(nextPage);
       setCharacters([...characters, ...loadedCharacters]);
       setPage(nextPage);
       setHasError(false);

@@ -1,10 +1,8 @@
-// src/viewmodels/CharacterDetailViewModel.ts
-
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
-  fetchCharacterFilms,
+  fetchCharacterFullDetails,
   Character,
-} from "../api/services/characterFilmsService";
+} from "../api/services/charactersFullDetails";
 
 interface CharacterDetailViewModel {
   isLoading: boolean;
@@ -21,7 +19,7 @@ export function useCharacterDetailViewModel(): CharacterDetailViewModel {
   const loadCharacterDetails = async (peopleId: number) => {
     setIsLoading(true);
     try {
-      const characterData = await fetchCharacterFilms(peopleId);
+      const characterData = await fetchCharacterFullDetails(peopleId);
       setCharacter(characterData);
       setError(null);
     } catch (error) {
