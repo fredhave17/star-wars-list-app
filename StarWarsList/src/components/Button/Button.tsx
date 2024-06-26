@@ -14,7 +14,7 @@ interface ButtonProps extends TouchableOpacityProps {
   onPress: () => void;
 }
 
-export const Button = ({ style, onPress, text, ...props }) => {
+export const Button = ({ style, onPress, text, ...props }: ButtonProps) => {
   return (
     <TouchableOpacity
       onPress={onPress}
