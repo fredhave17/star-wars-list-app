@@ -1,8 +1,7 @@
-// src/__tests__/Text.test.tsx
-
 import React from "react";
 import { render } from "@testing-library/react-native";
 import { Text, TextProps } from "../components/Text/Text";
+import { StyleSheet } from "react-native";
 
 describe("Text Component", () => {
   const defaultProps: TextProps = {
@@ -13,9 +12,10 @@ describe("Text Component", () => {
     const { getByText } = render(<Text {...defaultProps} />);
     const textElement = getByText(defaultProps.children);
     expect(textElement).toBeDefined();
-    expect(textElement.props.style).toContainEqual({
-      fontSize: 16, // Adjust this value based on your default font size
-    });
+
+    const styles = StyleSheet.flatten(textElement.props.style);
+
+    expect(styles.fontSize).toBe(12);
   });
 
   it("renders specified variant correctly", () => {
@@ -24,9 +24,10 @@ describe("Text Component", () => {
     );
     const textElement = getByText(defaultProps.children);
     expect(textElement).toBeDefined();
-    expect(textElement.props.style).toContainEqual({
-      fontSize: 24, // Adjust this value based on your headingLarge font size
-    });
+
+    const styles = StyleSheet.flatten(textElement.props.style);
+
+    expect(styles.fontSize).toBe(20);
   });
 
   it("applies custom styles correctly", () => {
@@ -36,6 +37,9 @@ describe("Text Component", () => {
     );
     const textElement = getByText(defaultProps.children);
     expect(textElement).toBeDefined();
-    expect(textElement.props.style).toContainEqual(customStyle);
+
+    const styles = StyleSheet.flatten(textElement.props.style);
+
+    expect(styles.color).toBe("red");
   });
 });

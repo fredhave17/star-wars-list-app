@@ -1,5 +1,7 @@
+// TopBar.tsx
+
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, TouchableOpacity } from "react-native";
 import { Icon } from "../Icon/Icon";
 import styles from "./styles";
 
@@ -9,8 +11,6 @@ export interface TopBarProps {
   onPressLeftButton?: () => void;
 }
 
-const imagePath = "../";
-
 export const TopBar = ({
   iconLeft,
   iconRight,
@@ -19,20 +19,20 @@ export const TopBar = ({
   return (
     <View style={styles.container}>
       {iconLeft && (
-        <View>
+        <TouchableOpacity
+          onPress={onPressLeftButton}
+          accessible={true}
+          accessibilityLabel='left-icon'
+        >
           <Image source={require("../../assets/images/logoStarWars.png")} />
-        </View>
+        </TouchableOpacity>
       )}
-      <>
-        {iconRight && (
-          <>
-            <Icon onPress={onPressLeftButton} name='arrowLeft' size={30} />
-            <View>
-              <Image source={require("../../assets/images/logoStarWars.png")} />
-            </View>
-          </>
-        )}
-      </>
+      {iconRight && (
+        <TouchableOpacity accessible={true} testID='right-icon'>
+          <Icon name='arrowLeft' size={30} />
+          <Image source={require("../../assets/images/logoStarWars.png")} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };

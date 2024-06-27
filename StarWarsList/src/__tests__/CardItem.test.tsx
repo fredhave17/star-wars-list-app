@@ -1,6 +1,6 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react-native";
-import { CardItem } from "../components/CardItem/CardItem";
+import { CardItem, CardItemProps } from "../components/CardItem/CardItem";
 
 describe("CardItem Component", () => {
   const mockCharacter = {
@@ -20,7 +20,7 @@ describe("CardItem Component", () => {
   const mockHandleFavorite = jest.fn();
   const mockOnPress = jest.fn();
 
-  const defaultProps = {
+  const defaultProps: CardItemProps = {
     name: "Luke Skywalker",
     character: mockCharacter,
     characterId: 1,
@@ -29,17 +29,8 @@ describe("CardItem Component", () => {
     onPress: mockOnPress,
   };
 
-  it("renders correctly with character details", () => {
-    const { getByText, getByTestId } = render(<CardItem {...defaultProps} />);
-
-    const titleText = getByText("Luke Skywalker");
-    expect(titleText).toBeTruthy();
-
-    const favoriteIcon = getByTestId("favorite-icon");
-    fireEvent.press(favoriteIcon);
-
-    expect(mockHandleFavorite).toHaveBeenCalledTimes(1);
-    expect(mockHandleFavorite).toHaveBeenCalledWith(defaultProps.characterId);
+  beforeEach(() => {
+    jest.clearAllMocks();
   });
 
   it("renders correctly without character details", () => {

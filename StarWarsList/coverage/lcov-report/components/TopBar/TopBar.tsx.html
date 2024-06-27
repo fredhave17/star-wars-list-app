@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -112,16 +112,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -139,8 +137,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React from "react";
-import { View, Image } from "react-native";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// TopBar.tsx
+&nbsp;
+import React from "react";
+import { View, Image, TouchableOpacity } from "react-native";
 import { Icon } from "../Icon/Icon";
 import styles from "./styles";
 &nbsp;
@@ -150,30 +152,28 @@ export interface TopBarProps {
   onPressLeftButton?: () =&gt; void;
 }
 &nbsp;
-const imagePath = <span class="cstat-no" title="statement not covered" >"../";</span>
-&nbsp;
-export const TopBar = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span></span>
+export const TopBar = ({
   iconLeft,
   iconRight,
   onPressLeftButton,
 }: TopBarProps) =&gt; {
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;View style={styles.container}&gt;
       {iconLeft &amp;&amp; (
-        &lt;View&gt;
+        &lt;TouchableOpacity
+          onPress={onPressLeftButton}
+          accessible={true}
+          accessibilityLabel='left-icon'
+        &gt;
           &lt;Image source={require("../../assets/images/logoStarWars.png")} /&gt;
-        &lt;/View&gt;
+        &lt;/TouchableOpacity&gt;
       )}
-      &lt;&gt;
-        {iconRight &amp;&amp; (
-          &lt;&gt;
-            &lt;Icon onPress={onPressLeftButton} name='arrowLeft' size={30} /&gt;
-            &lt;View&gt;
-              &lt;Image source={require("../../assets/images/logoStarWars.png")} /&gt;
-            &lt;/View&gt;
-          &lt;/&gt;
-        )}
-      &lt;/&gt;
+      {iconRight &amp;&amp; (
+        &lt;TouchableOpacity accessible={true} testID='right-icon'&gt;
+          &lt;Icon name='arrowLeft' size={30} /&gt;
+          &lt;Image source={require("../../assets/images/logoStarWars.png")} /&gt;
+        &lt;/TouchableOpacity&gt;
+      )}
     &lt;/View&gt;
   );
 };
@@ -184,7 +184,7 @@ export const TopBar = <span class="cstat-no" title="statement not covered" ><spa
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-06-26T21:55:04.453Z
+                at 2024-06-27T04:04:05.850Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -7,7 +7,7 @@ import { Character } from "src/api/services/charactersFullDetails";
 import { CardCaracter } from "./CardCaracter/CardCaracter";
 import { styles } from "./styles";
 
-interface CardItemProps {
+export interface CardItemProps {
   name: string;
   character?: Character;
   characterId?: number;

@@ -1,5 +1,3 @@
-// src/__tests__/MovieCard.test.tsx
-
 import React from "react";
 import { render } from "@testing-library/react-native";
 import { MovieCard, MovieCardProps } from "../components/MovieCard/MovieCard";
