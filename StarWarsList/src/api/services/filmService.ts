@@ -7,7 +7,7 @@ export async function fetchFilmTitle(
   retries = 3
 ): Promise<string> {
   try {
-    const response = await axios.get(url, { timeout: 10000 }); // Aumentando o timeout para 10 segundos
+    const response = await axios.get(url, { timeout: 10000 });
     return response.data.title;
   } catch (error) {
     if (
@@ -18,10 +18,10 @@ export async function fetchFilmTitle(
       console.warn(
         `Timeout ao obter título do filme ${url}. Tentando novamente...`
       );
-      return fetchFilmTitle(url, retries - 1); // Tentativa novamente com uma tentativa a menos
+      return fetchFilmTitle(url, retries - 1);
     } else {
       console.error(`Erro ao obter título do filme ${url}:`, error);
-      throw error; // Lança o erro para ser tratado na camada superior
+      throw error;
     }
   }
 }

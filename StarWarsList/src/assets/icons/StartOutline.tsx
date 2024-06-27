@@ -1,6 +1,6 @@
 import React from "react";
 import Svg, { G, Mask, Path, Rect } from "react-native-svg";
-import { IconBase } from "src/components/Icon/Icon";
+import { IconBase } from "../../components/Icon/Icon";
 
 export const StartOutline = ({ size = 20, color = "black" }: IconBase) => {
   return (

@@ -3,7 +3,7 @@ import { View, TouchableOpacity, StyleSheet } from "react-native";
 import { Icon } from "../Icon/Icon";
 import { Button } from "../Button/Button";
 import { Text } from "../Text/Text";
-import { Character } from "src/api/services/charactersFullDetails";
+import { Character } from "../../api/services/charactersFullDetails";
 import { CardCaracter } from "./CardCaracter/CardCaracter";
 import { styles } from "./styles";
 

@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { $COLORS } from "src/theme/colors";
 
 export const styles = StyleSheet.create({
   containerExpanded: {

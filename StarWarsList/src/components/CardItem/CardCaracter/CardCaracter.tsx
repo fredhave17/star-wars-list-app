@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { styles } from "./styles";
-import { Character } from "src/api/services/charactersFullDetails";
+import { Character } from "../../../api/services/charactersFullDetails";
 import { Text } from "../../Text/Text";
 
 export interface CardCaracterProps {

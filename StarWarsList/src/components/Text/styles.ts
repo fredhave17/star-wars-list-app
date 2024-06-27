@@ -1,5 +1,5 @@
 import { TextStyle, ViewStyle } from "react-native";
-import { $COLORS } from "src/theme/colors";
+import { $COLORS } from "../../theme/colors";
 
 export type TextVariants =
   | "headingLarge"

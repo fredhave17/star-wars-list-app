@@ -1,6 +1,6 @@
 import React from "react";
 import Svg, { Defs, G, Mask, Path, Pattern, Rect } from "react-native-svg";
-import { IconBase } from "src/components/Icon/Icon";
+import { IconBase } from "../../components/Icon/Icon";
 
 export const StarWarsLogo = ({ size = 20, color = "black" }: IconBase) => {
   return (

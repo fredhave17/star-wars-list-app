@@ -1,12 +1,12 @@
 import React from "react";
 import { Pressable } from "react-native";
 
-import { ArrowDown } from "src/assets/icons/ArrowDown";
-import { ArrowLeft } from "src/assets/icons/ArrowLeft";
-import { Close } from "src/assets/icons/Close";
-import { Search } from "src/assets/icons/Search";
-import { StarLine } from "src/assets/icons/StarLine";
-import { StartOutline } from "src/assets/icons/StartOutline";
+import { ArrowDown } from "../../assets/icons/ArrowDown";
+import { ArrowLeft } from "../../assets/icons/ArrowLeft";
+import { Close } from "../../assets/icons/Close";
+import { Search } from "../../assets/icons/Search";
+import { StarLine } from "../../assets/icons/StarLine";
+import { StartOutline } from "../../assets/icons/StartOutline";
 
 export interface IconBase {
   size?: number;

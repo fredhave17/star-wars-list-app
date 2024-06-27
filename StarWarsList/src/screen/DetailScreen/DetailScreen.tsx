@@ -7,14 +7,14 @@ import {
 } from "react-native";
 import { Text } from "../../components/Text/Text";
 import { styles } from "./styles";
-import { RouteStackParamList } from "src/routes/Routes";
+import { RouteStackParamList } from "../../routes/Routes";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { TopBar } from "src/components/TopBar/TopBar";
-import { useCharacterDetailViewModel } from "src/viewmodels/CharacterDetails";
-import { MovieCard } from "src/components/MovieCard/MovieCard";
-import { CardItem } from "src/components/CardItem/CardItem";
-import { useFilmViewModel } from "src/viewmodels/FilmViewModel";
-import { useFavoritesStore } from "src/store/favoriteStore";
+import { TopBar } from "../../components/TopBar/TopBar";
+import { useCharacterDetailViewModel } from "../../viewmodels/CharacterDetails";
+import { MovieCard } from "../../components/MovieCard/MovieCard";
+import { CardItem } from "../../components/CardItem/CardItem";
+import { useFilmViewModel } from "../../viewmodels/FilmViewModel";
+import { useFavoritesStore } from "../../store/favoriteStore";
 
 type ScreenProps = NativeStackScreenProps<RouteStackParamList, "DetailsScreen">;
 

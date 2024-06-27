@@ -28,4 +28,7 @@ export const styles = StyleSheet.create({
   listsTitle: {
     marginBottom: 10,
   },
+  containerFlatList: {
+    paddingVertical: 30,
+  },
 });

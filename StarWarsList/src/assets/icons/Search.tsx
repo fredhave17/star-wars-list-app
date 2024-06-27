@@ -1,6 +1,6 @@
 import React from "react";
 import { G, Line, Mask, Path, Rect, Svg } from "react-native-svg";
-import { IconBase } from "src/components/Icon/Icon";
+import { IconBase } from "../../components/Icon/Icon";
 
 export const Search = ({ size = 20, color = "black" }: IconBase) => {
   return (
