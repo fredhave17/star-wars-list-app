@@ -8,8 +8,10 @@ export interface Character {
 }
 
 export async function fetchCharactersName(page: number): Promise<Character[]> {
+  const url = `${BASE_URL}/people/?page=${page}`;
+
   try {
-    const response = await axios.get(`${BASE_URL}/people/?page=${page}`);
+    const response = await axios.get(url);
     return response.data.results.map((character: any) => ({
       id: extractIdFromUrl(character.url),
       name: character.name,

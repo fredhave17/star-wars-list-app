@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import { ActivityIndicator, FlatList, SafeAreaView, View } from "react-native";
 import { Text } from "../../components/Text/Text";
 import { styles } from "./styles";
-import { CardItem } from "src/components/CardItem/CardItem";
+import { CardItem } from "../../components/CardItem/CardItem";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RouteStackParamList } from "src/routes/Routes";
-import { TopBar } from "src/components/TopBar/TopBar";
-import { useCharacterNameListViewModel } from "src/viewmodels/CharacterListNameViewModel";
-import { Character } from "src/api/services/characterNameService";
-import { useFavoritesStore } from "src/store/favoriteStore";
+import { RouteStackParamList } from "../../routes/Routes";
+import { TopBar } from "../../components/TopBar/TopBar";
+import { useCharacterNameListViewModel } from "../../viewmodels/CharacterListNameViewModel";
+import { Character } from "../../api/services/characterNameService";
+import { useFavoritesStore } from "../../store/favoriteStore";
 
 type ScreenProps = NativeStackScreenProps<RouteStackParamList, "HomeScreen">;
 
@@ -106,18 +106,20 @@ export const HomeScreen = ({ navigation }: ScreenProps) => {
         <Text variant='headingLargeBold' style={styles.listsTitle}>
           All characters
         </Text>
-        <FlatList
-          data={characters}
-          renderItem={renderCharacterItem}
-          keyExtractor={(item) => item.id.toString()}
-          onEndReachedThreshold={0.5}
-          onEndReached={loadMoreCharacters}
-          ListFooterComponent={() =>
-            isLoading && characters.length > 0 ? (
-              <ActivityIndicator size='large' color='#007AFF' />
-            ) : null
-          }
-        />
+        <View style={styles.containerFlatList}>
+          <FlatList
+            data={characters}
+            renderItem={renderCharacterItem}
+            keyExtractor={(item) => item.id.toString()}
+            onEndReachedThreshold={0.5}
+            onEndReached={loadMoreCharacters}
+            ListFooterComponent={() =>
+              isLoading ? (
+                <ActivityIndicator size='large' color='#007AFF' />
+              ) : null
+            }
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
