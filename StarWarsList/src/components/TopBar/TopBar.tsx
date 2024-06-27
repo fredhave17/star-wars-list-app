@@ -1,5 +1,3 @@
-// TopBar.tsx
-
 import React from "react";
 import { View, Image, TouchableOpacity } from "react-native";
 import { Icon } from "../Icon/Icon";
