@@ -4,10 +4,10 @@ import { $fontSizes } from "./styles";
 
 type TextVariants = keyof typeof $fontSizes;
 
-interface TextProps {
+export interface TextProps {
   variant?: TextVariants;
   style?: TextStyle;
-  children: React.ReactNode;
+  children: string;
 }
 
 export const Text = ({

@@ -47,7 +47,11 @@ export const CardItem = ({
             <Icon name={iconName} size={28} />
           </TouchableOpacity>
           {onPress && (
-            <TouchableOpacity onPress={onPress} style={styles.iconButton}>
+            <TouchableOpacity
+              onPress={onPress}
+              style={styles.iconButton}
+              testID='favorite-icon'
+            >
               <Icon name={"arrowDown"} size={28} />
             </TouchableOpacity>
           )}
